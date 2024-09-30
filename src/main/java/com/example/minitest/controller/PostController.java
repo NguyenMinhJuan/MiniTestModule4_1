@@ -28,6 +28,7 @@ public class PostController {
 
     @GetMapping("")
     public ModelAndView index(){
+        Iterable<Post> posts = postService.findAll();
         return new ModelAndView("/index","listPost",postService.findAll());
     }
 
@@ -51,9 +52,7 @@ public class PostController {
     }
 
     @GetMapping("/update/{id}")
-    public String update(@ModelAttribute ("post") Post post,@PathVariable ("id") Long id){
-//        postService.save(post);     error??
-//        post.setPost_id(id);
+    public String update(@ModelAttribute ("post") Post post){
         postService.save(post);
         return "redirect:/post";
     }
