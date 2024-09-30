@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>create post</h1>
+<form method="post" th:object="${post}" th:action="@{/post/create}">
+    Title <input type="text" th:field="*{post_title}"> <br>
+    Content <input type="text" th:field="*{post_content}"> <br>
+    Description <input type="text" th:field="*{post_shortDescription}"> <br>
+    Photo <input type="text" th:field="*{post_imgUrl}"> <br>
+    <select>
+        <option th:each="c : ${categories}" th:text="${c.getCategory_name()}" th:value="${c.getCategory_id()}"></option>
+    </select>
+    <input type="submit" value="create">
+</form>
+</body>
+</html>

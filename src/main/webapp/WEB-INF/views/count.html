@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>count post by category</h1>
+<table>
+    <tr>
+        <td>id category</td>
+        <td>number</td>
+    </tr>
+    <tr th:each="c: ${countPost}">
+        <td th:text="${c.getTitle()}"></td>
+        <td th:text="${c.getCount()}"></td>
+    </tr>
+</table>
+</body>
+</html>
